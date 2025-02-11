@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HRLink</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <style type="text/tailwindcss">
+      @tailwind base;
+      @tailwind components;
+      @tailwind utilities;
+
+      @font-face {
+        font-family: 'Neue Montreal';
+        src: url('/fonts/ppneuemontreal-medium.woff') format('woff2'),
+          url('/fonts/ppneuemontreal-medium.woff') format('woff');
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      body {
+        font-family: 'Neue Montreal', sans-serif;
+      }
+
+      .dropdown:hover .dropdown-menu {
+        display: block;
+      }
+
+      .mobile-menu {
+        transition: all 0.3s ease-in-out;
+        max-height: 0;
+        overflow: hidden;
+      }
+
+      .mobile-menu.show {
+        max-height: 400px;
+      }
+
+      @layer components {
+        .h1 {
+          @apply font-semibold text-[2.5rem] leading-[3.25rem] 
+             md:text-[2.75rem] md:leading-[3.75rem] 
+             lg:text-[3.25rem] lg:leading-[4.0625rem] 
+             xl:text-[3.75rem] xl:leading-[4.5rem];
+        }
+        .h2 {
+          @apply text-[1.75rem] leading-[2.5rem] 
+             md:text-[2rem] md:leading-[2.5rem] 
+             lg:text-[2.5rem] lg:leading-[3.5rem] 
+             xl:text-[3rem] xl:leading-tight;
+        }
+        .h3 {
+          @apply text-[1.5rem] leading-[2rem] 
+             md:text-[1.75rem] md:leading-[2.25rem] 
+             lg:text-[2rem] lg:leading-[2.5rem];
+        }
+        .h4 {
+          @apply text-[1.25rem] leading-[1.75rem] 
+             md:text-[1.5rem] md:leading-[2rem];
+        }
+        .h5 {
+          @apply text-[1rem] leading-[1.5rem] 
+             md:text-[1.25rem] md:leading-[1.75rem];
+        }
+        .h6 {
+          @apply text-[0.875rem] leading-[1.25rem] 
+             md:text-[1rem] md:leading-[1.5rem];
+        }
+      }
+    </style>
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary_green: '#2B6462',
+              main_black: '#181E27',
+              secondary_black: '#3C465F',
+              dark: '#18181B',
+              text_primary: '#1A1A1A',
+              card_bg: '#f7f6f9',
+              secondary_white: '#707071',
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+
+  <body class="bg-white">
+    <!-- Header -->
+    <header>
+      <nav class="fixed w-full top-0 z-50 bg-white border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex justify-between items-center h-16">
+            <div class="flex items-center">
+              <div class="flex-shrink-0 flex items-center">
+                <div
+                  class="w-8 h-8 bg-teal-600 rounded-full flex justify-center items-center font-mono text-white font-extrabold overflow-hidden text-3xl"
+                >
+                  II
+                </div>
+                <span class="ml-2 text-xl font-semibold text-gray-900"
+                  >HRLink</span
+                >
+              </div>
+
+              <div class="hidden md:ml-8 md:flex md:space-x-8">
+                <div class="dropdown relative inline-block">
+                  <button
+                    class="inline-flex items-center px-1 pt-1 text-gray-700 hover:text-gray-900"
+                  >
+                    Products
+                    <svg
+                      class="ml-1 w-4 h-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M19 9l-7 7-7-7"
+                      />
+                    </svg>
+                  </button>
+                </div>
+
+                <div class="dropdown relative inline-block">
+                  <button
+                    class="inline-flex items-center px-1 pt-1 text-gray-700 hover:text-gray-900"
+                  >
+                    Resources
+                    <svg
+                      class="ml-1 w-4 h-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M19 9l-7 7-7-7"
+                      />
+                    </svg>
+                  </button>
+                </div>
+
+                <a
+                  href="#"
+                  class="inline-flex items-center px-1 pt-1 text-gray-700 hover:text-gray-900"
+                >
+                  Pricing
+                </a>
+
+                <div class="dropdown relative inline-block">
+                  <button
+                    class="inline-flex items-center px-1 pt-1 text-gray-700 hover:text-gray-900"
+                  >
+                    Company
+                    <svg
+                      class="ml-1 w-4 h-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M19 9l-7 7-7-7"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="hidden md:flex items-center space-x-4">
+              <a
+                href="#"
+                class="text-gray-700 bg-secondary_white/20 rounded-xl hover:text-gray-900 px-3 py-2"
+              >
+                Sign In
+              </a>
+              <a
+                href="#"
+                class="bg-teal-700 hover:bg-teal-800 text-white px-4 py-2 rounded-xl"
+              >
+                Get Started
+              </a>
+            </div>
+
+            <!-- Mobile menu button -->
+            <div class="flex md:hidden">
+              <button
+                type="button"
+                id="mobile-menu-button"
+                class="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-gray-900 hover:bg-gray-100"
+              >
+                <svg
+                  class="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="mobile-menu md:hidden bg-white">
+          <div class="px-2 pt-2 pb-3 space-y-1">
+            <a
+              href="#"
+              class="block px-3 py-2 text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-md"
+              >Products</a
+            >
+            <a
+              href="#"
+              class="block px-3 py-2 text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-md"
+              >Resources</a
+            >
+            <a
+              href="#"
+              class="block px-3 py-2 text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-md"
+              >Pricing</a
+            >
+            <a
+              href="#"
+              class="block px-3 py-2 text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-md"
+              >Company</a
+            >
+            <a
+              href="#"
+              class="block px-3 py-2 text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-md"
+              >Sign In</a
+            >
+            <a
+              href="#"
+              class="block px-3 py-2 bg-teal-700 text-white rounded-lg text-center mt-4"
+              >Get Started</a
+            >
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main class="container mx-auto px-10 pb-16 pt-36 max-w-7xl">
+      <!-- About Us Section -->
+      <section class="space-y-16">
+        <div class="text-center space-y-8">
+          <p class="text-primary_green font-medium">ABOUT US</p>
+          <h1
+            class="text-main_black h1 font-medium leading-tight max-w-4xl mx-auto"
+          >
+            Our vision is to make work inspiring and fulfilling
+          </h1>
+          <p
+            class="text-secondary_black max-w-3xl font-medium mx-auto h5 leading-relaxed"
+          >
+            HRLInk is a cloud-based HR system designed to simplify and
+            streamline HR processes. Grove HR is a powerful tool that can help
+            SMB businesses manage their HR operations with ease.
+          </p>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-16 items-start">
+          <div class="space-y-8 text-lg md:text-left text-justify">
+            <p class="text-secondary_black leading-relaxed">
+              HRLink was established in 2009 as a U.S.-based software
+              development & consulting company with development centers in
+              Vietnam.
+            </p>
+            <p class="text-secondary_black leading-relaxed">
+              Besides providing outsourcing services, HRLink has built and
+              successfully launched its own software companies. The most notable
+              companies with millions of users worldwide.
+            </p>
+            <p class="text-secondary_black leading-relaxed">
+              HRLink is reliable, secure, and backed by a team of HR experts
+              with a proven track record of developing high-quality technology
+              solutions.
+            </p>
+            <p class="text-secondary_black leading-relaxed">
+              With the growing size of many startups and SME companies and the
+              increasing complexity of HR regulations and employee expectations,
+              manual HR processes can become time-consuming, error-prone, and
+              difficult to manage. HR management software provides a centralized
+              platform for storing and automating HR processes to offer more
+              free time for HR staff.
+            </p>
+          </div>
+
+          <div>
+            <div class="relative">
+              <img
+                src="/img/Right.png"
+                alt="Team Members"
+                class="w-[80%] mx-auto h-auto rounded-lg object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Stats Section -->
+      <section>
+        <div
+          class="my-16 grid sm:grid-cols-3 grid-cols-1 gap-4 bg-dark text-white rounded-2xl p-8"
+        >
+          <div class="text-center">
+            <h2 class="h2 mb-2">30+</h2>
+            <p class="text-gray-400">Team members</p>
+          </div>
+          <div class="text-center">
+            <h2 class="h2 mb-2">100+</h2>
+            <p class="text-gray-400">Features</p>
+          </div>
+          <div class="text-center">
+            <h2 class="h2 mb-2">5K+</h2>
+            <p class="text-gray-400">Companies</p>
+          </div>
+        </div>
+
+        <div class="max-w-7xl bg-dark pb-10 mx-auto rounded-2xl">
+          <h2 class="h2 text-white mb-12 md:py-10 py-5 text-center">
+            Meet the team
+          </h2>
+
+          <div class="max-w-7xl mx-auto">
+            <div
+              class="grid grid-cols-1 justify-items-center md:grid-cols-2 lg:grid-cols-3 gap-6 md:px-20 px-8"
+            >
+              <div class="group">
+                <div class="relative mb-4">
+                  <img
+                    src="/img/boywithlap.webp"
+                    alt="Member"
+                    class="w-[320px] h-auto object-cover shadow-lg"
+                  />
+                </div>
+                <div class="flex items-center gap-2 mb-1">
+                  <h3 class="text-lg font-medium text-white">Esther Howard</h3>
+                  <svg
+                    class="w-5 h-5 text-gray-900 font-bold p-1 bg-white rounded-md"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <rect
+                      x="2"
+                      y="9"
+                      width="4"
+                      height="12"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <circle
+                      cx="4"
+                      cy="4"
+                      r="2"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </div>
+                <p class="text-gray-400">Copywriter</p>
+              </div>
+              <div class="group">
+                <div class="relative mb-4">
+                  <img
+                    src="/img/women.webp"
+                    alt="Member"
+                    class="w-[320px] h-auto object-cover shadow-lg"
+                  />
+                </div>
+                <div class="flex items-center gap-2 mb-1">
+                  <h3 class="text-lg font-medium text-white">Dianne Russell</h3>
+                  <svg
+                    class="w-5 h-5 text-gray-900 font-bold p-1 bg-white rounded-md"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <rect
+                      x="2"
+                      y="9"
+                      width="4"
+                      height="12"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <circle
+                      cx="4"
+                      cy="4"
+                      r="2"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </div>
+                <p class="text-gray-400">Back End Developer</p>
+              </div>
+              <div class="group">
+                <div class="relative mb-4">
+                  <img
+                    src="/img/flower.webp"
+                    alt="Esther Howard"
+                    class="w-[320px] h-auto object-cover shadow-lg"
+                  />
+                </div>
+                <div class="flex items-center gap-2 mb-1">
+                  <h3 class="text-lg font-medium text-white">Annette Black</h3>
+                  <svg
+                    class="w-5 h-5 text-gray-900 font-bold p-1 bg-white rounded-md"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <rect
+                      x="2"
+                      y="9"
+                      width="4"
+                      height="12"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <circle
+                      cx="4"
+                      cy="4"
+                      r="2"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </div>
+                <p class="text-gray-400">Designer</p>
+              </div>
+              <div class="group">
+                <div class="relative mb-4">
+                  <img
+                    src="/img/boywithlap.webp"
+                    alt="Member"
+                    class="w-[320px] h-auto object-cover shadow-lg"
+                  />
+                </div>
+                <div class="flex items-center gap-2 mb-1">
+                  <h3 class="text-lg font-medium text-white">Esther Howard</h3>
+                  <svg
+                    class="w-5 h-5 text-gray-900 font-bold p-1 bg-white rounded-md"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <rect
+                      x="2"
+                      y="9"
+                      width="4"
+                      height="12"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <circle
+                      cx="4"
+                      cy="4"
+                      r="2"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </div>
+                <p class="text-gray-400">Copywriter</p>
+              </div>
+              <div class="group">
+                <div class="relative mb-4">
+                  <img
+                    src="/img/women.webp"
+                    alt="Member"
+                    class="w-[320px] h-auto object-cover shadow-lg"
+                  />
+                </div>
+                <div class="flex items-center gap-2 mb-1">
+                  <h3 class="text-lg font-medium text-white">Dianne Russell</h3>
+                  <svg
+                    class="w-5 h-5 text-gray-900 font-bold p-1 bg-white rounded-md"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <rect
+                      x="2"
+                      y="9"
+                      width="4"
+                      height="12"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <circle
+                      cx="4"
+                      cy="4"
+                      r="2"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </div>
+                <p class="text-gray-400">Back End Developer</p>
+              </div>
+              <div class="group">
+                <div class="relative mb-4">
+                  <img
+                    src="/img/flower.webp"
+                    alt="Esther Howard"
+                    class="w-[320px] h-auto object-cover shadow-lg"
+                  />
+                </div>
+                <div class="flex items-center gap-2 mb-1">
+                  <h3 class="text-lg font-medium text-white">Annette Black</h3>
+                  <svg
+                    class="w-5 h-5 text-gray-900 font-bold p-1 bg-white rounded-md"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <rect
+                      x="2"
+                      y="9"
+                      width="4"
+                      height="12"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <circle
+                      cx="4"
+                      cy="4"
+                      r="2"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </div>
+                <p class="text-gray-400">Designer</p>
+              </div>
+              <div class="group">
+                <div class="relative mb-4">
+                  <img
+                    src="/img/boywithlap.webp"
+                    alt="Member"
+                    class="w-[320px] h-auto object-cover shadow-lg"
+                  />
+                </div>
+                <div class="flex items-center gap-2 mb-1">
+                  <h3 class="text-lg font-medium text-white">Esther Howard</h3>
+                  <svg
+                    class="w-5 h-5 text-gray-900 font-bold p-1 bg-white rounded-md"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <rect
+                      x="2"
+                      y="9"
+                      width="4"
+                      height="12"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <circle
+                      cx="4"
+                      cy="4"
+                      r="2"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </div>
+                <p class="text-gray-400">Copywriter</p>
+              </div>
+              <div class="group">
+                <div class="relative mb-4">
+                  <img
+                    src="/img/women.webp"
+                    alt="Member"
+                    class="w-[320px] h-auto object-cover shadow-lg"
+                  />
+                </div>
+                <div class="flex items-center gap-2 mb-1">
+                  <h3 class="text-lg font-medium text-white">Dianne Russell</h3>
+                  <svg
+                    class="w-5 h-5 text-gray-900 font-bold p-1 bg-white rounded-md"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <rect
+                      x="2"
+                      y="9"
+                      width="4"
+                      height="12"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <circle
+                      cx="4"
+                      cy="4"
+                      r="2"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </div>
+                <p class="text-gray-400">Back End Developer</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- core values section -->
+      <section>
+        <div class="max-w-7xl mx-auto px-4">
+          <div class="text-center my-16">
+            <h1 class="text-main_black h2 font-medium leading-tight mb-6">
+              Our core values
+            </h1>
+            <p
+              class="text-secondary_white text-xl max-w-4xl mx-auto leading-relaxed"
+            >
+              It takes great people to make a great product. Our company culture
+              champions diversity and our team members embody Pipedrive's
+              values.
+            </p>
+          </div>
+
+          <div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8">
+            <div class="bg-card_bg text-center rounded-2xl p-8 shadow-md">
+              <i class="fa-solid fa-users text-3xl text-primary_green mb-6"></i>
+              <h3 class="text-text_primary text-2xl font-semibold mb-4">
+                Team first
+              </h3>
+              <p class="text-secondary_white h6">
+                Discover how we put our team at the heart and support each
+                other.
+              </p>
+            </div>
+
+            <div class="bg-card_bg text-center rounded-2xl p-8 shadow-md">
+              <i class="fa-solid fa-star text-3xl text-primary_green mb-6"></i>
+              <h3 class="text-text_primary text-2xl font-semibold mb-4">
+                Reach for greatness
+              </h3>
+              <p class="text-secondary_white h6">
+                We're brave and always trying new things to see what we can
+                discover.
+              </p>
+            </div>
+
+            <div class="bg-card_bg text-center rounded-2xl p-8 shadow-md">
+              <i class="fa-solid fa-sun text-3xl text-primary_green mb-6"></i>
+              <h3 class="text-text_primary text-2xl font-semibold mb-4">
+                No excuses
+              </h3>
+              <p class="text-secondary_white h6">
+                We take responsibility and understand that where there's a will,
+                there's a way.
+              </p>
+            </div>
+
+            <div class="bg-card_bg text-center rounded-2xl p-8 shadow-md">
+              <i
+                class="fa-solid fa-lightbulb text-3xl text-primary_green mb-6"
+              ></i>
+              <h3 class="text-text_primary text-2xl font-semibold mb-4">
+                Internal drive
+              </h3>
+              <p class="text-secondary_white h6">
+                We are deeply passionate about our work, and this profound love
+                for what we do.
+              </p>
+            </div>
+
+            <div class="bg-card_bg text-center rounded-2xl p-8 shadow-md">
+              <i class="fa-solid fa-book text-3xl text-primary_green mb-6"></i>
+              <h3 class="text-text_primary text-2xl font-semibold mb-4">
+                Be ready to learn
+              </h3>
+              <p class="text-secondary_white h6">
+                We're open-mindedness, proactivity, and a relentless eagerness
+                to acquire new skills.
+              </p>
+            </div>
+
+            <div class="bg-card_bg text-center rounded-2xl p-8 shadow-md">
+              <i class="fa-solid fa-heart text-3xl text-primary_green mb-6"></i>
+              <h3 class="text-text_primary text-2xl font-semibold mb-4">
+                Be positive vibes
+              </h3>
+              <p class="text-secondary_white h6">
+                We celebrate each other's achievements and always find time to
+                spread the love.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA section -->
+      <section>
+        <div class="flex items-center my-16 justify-center p-4">
+          <div
+            class="w-full bg-[#1C1C1C] rounded-3xl md:p-16 p-8 relative overflow-hidden"
+          >
+            <div class="absolute -left-28 -bottom-40 opacity-10">
+              <div class="size-80">
+                <div
+                  class="absolute w-64 h-64 border border-gray-100 rounded-full"
+                ></div>
+                <div
+                  class="absolute w-48 h-48 border border-gray-100 rounded-full ml-8 mt-8"
+                ></div>
+                <div
+                  class="absolute w-32 h-32 border border-gray-100 rounded-full ml-16 mt-16"
+                ></div>
+                <div
+                  class="absolute w-16 h-16 border border-gray-100 rounded-full ml-24 mt-24"
+                ></div>
+              </div>
+            </div>
+
+            <div class="absolute -right-40 -bottom-40 opacity-10">
+              <div class="size-80">
+                <div
+                  class="absolute w-64 h-64 border border-gray-100 rounded-full"
+                ></div>
+                <div
+                  class="absolute w-48 h-48 border border-gray-100 rounded-full ml-8 mt-8"
+                ></div>
+                <div
+                  class="absolute w-32 h-32 border border-gray-100 rounded-full ml-16 mt-16"
+                ></div>
+                <div
+                  class="absolute w-16 h-16 border border-gray-100 rounded-full ml-24 mt-24"
+                ></div>
+              </div>
+            </div>
+
+            <div class="relative z-10 text-center">
+              <h1 class="text-white h2 font-normal mb-6">Join our team</h1>
+              <p class="text-gray-300 text-xl mb-10 max-w-2xl mx-auto">
+                Interesting in applying for a position? View our Careers page
+                for open positions and apply.
+              </p>
+              <a
+                href="#"
+                class="inline-block bg-primary_green hover:bg-primary_green/80 text-white/90 font-normal py-3 px-8 rounded-lg transition-colors duration-200"
+              >
+                View open positions
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full max-w-7xl mx-auto px-4 pb-16 md:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-5 gap-8 mb-12">
+        <div class="md:col-span-1">
+          <div class="space-y-4">
+            <div class="flex items-center gap-2">
+              <div
+                class="w-8 h-8 bg-teal-600 rounded-lg flex justify-center items-center font-mono text-white font-extrabold overflow-hidden text-3xl"
+              >
+                II
+              </div>
+              <span class="text-gray-900 font-semibold text-xl">HRLink</span>
+            </div>
+            <div class="space-y-2">
+              <div class="flex items-center gap-2 text-gray-600">
+                <svg
+                  class="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                  />
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                  />
+                </svg>
+                <span>Menlo Park, California</span>
+              </div>
+              <div class="flex items-center gap-2 text-gray-600">
+                <i class="fa-solid fa-globe size-4"></i>
+                <span>United States</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 md:col-span-4">
+          <div class="space-y-4">
+            <h3 class="text-gray-900 font-semibold">Product</h3>
+            <ul class="space-y-3">
+              <li>
+                <a href="#" class="text-gray-600 hover:text-gray-900"
+                  >Recruitment</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-600 hover:text-gray-900"
+                  >Onboarding</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-600 hover:text-gray-900"
+                  >Employee Management</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-600 hover:text-gray-900"
+                  >Attendance & Time Off</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-600 hover:text-gray-900"
+                  >Payroll Assistance</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-600 hover:text-gray-900"
+                  >Performance Management</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="space-y-4">
+            <h3 class="text-gray-900 font-semibold">Company</h3>
+            <ul class="space-y-3">
+              <li>
+                <a href="#" class="text-gray-600 hover:text-gray-900">About</a>
+              </li>
+              <li>
+                <a href="#" class="text-gray-600 hover:text-gray-900"
+                  >Contact Us</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-600 hover:text-gray-900"
+                  >Request a Demo</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-600 hover:text-gray-900"
+                  >Terms of service</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-600 hover:text-gray-900"
+                  >Privacy policies</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-600 hover:text-gray-900"
+                  >Careers</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="space-y-4">
+            <h3 class="text-gray-900 font-semibold">Resources</h3>
+            <ul class="space-y-3">
+              <li>
+                <a href="#" class="text-gray-600 hover:text-gray-900"
+                  >Pricing</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-600 hover:text-gray-900"
+                  >Support Center</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-600 hover:text-gray-900"
+                  >Customer Stories</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-600 hover:text-gray-900">Blog</a>
+              </li>
+              <li>
+                <a href="#" class="text-gray-600 hover:text-gray-900"
+                  >Write for us</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="space-y-4">
+            <h3 class="text-gray-900 font-semibold">HR Essentials</h3>
+            <ul class="space-y-3">
+              <li>
+                <a href="#" class="text-gray-600 hover:text-gray-900"
+                  >For Startups and SMBs</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-600 hover:text-gray-900"
+                  >Free HR Software</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-600 hover:text-gray-900"
+                  >Free 360 Feedback Tools</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-600 hover:text-gray-900"
+                  >Free Productivity Apps</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="pt-8 border-t border-gray-200">
+        <div
+          class="flex flex-col md:flex-row justify-between items-center gap-4"
+        >
+          <div class="text-gray-600">@Diverse 2023. All rights reserved.</div>
+          <div class="flex items-center gap-4">
+            <a href="#" class="text-gray-600 hover:text-gray-900">Facebook</a>
+            <span class="text-gray-600">•</span>
+            <a href="#" class="text-gray-600 hover:text-gray-900">Instagram</a>
+            <span class="text-gray-600">•</span>
+            <a href="#" class="text-gray-600 hover:text-gray-900">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script>
+      const mobileMenuButton = document.getElementById('mobile-menu-button');
+      const mobileMenu = document.getElementById('mobile-menu');
+      let isMenuOpen = false;
+
+      mobileMenuButton.addEventListener('click', () => {
+        isMenuOpen = !isMenuOpen;
+        if (isMenuOpen) {
+          mobileMenu.classList.add('show');
+          mobileMenuButton.innerHTML = `
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                `;
+        } else {
+          mobileMenu.classList.remove('show');
+          mobileMenuButton.innerHTML = `
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                `;
+        }
+      });
+
+      window.addEventListener('resize', () => {
+        if (window.innerWidth >= 768) {
+          mobileMenu.classList.remove('show');
+          isMenuOpen = false;
+          mobileMenuButton.innerHTML = `
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                `;
+        }
+      });
+    </script>
+  </body>
+</html>
